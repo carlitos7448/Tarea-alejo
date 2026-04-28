@@ -9,3 +9,4 @@ categoría:
 alimentos: menos de 20 unidades
 tecnología: menos de 5 unidades
 papelería: menos de 50 unidades*/
+
