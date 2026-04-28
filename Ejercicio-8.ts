@@ -5,3 +5,19 @@ Implementa una función que devuelva únicamente los usuarios que sean mayores
 de edad, estén activos y no tengan el rol de visitante.*/
 
 
+type Rol = "admin" | "editor" | "visitante";
+
+interface Usuario {
+  nombre: string;
+  edad: number;
+  activo: boolean;
+  rol: Rol;
+}
+
+const filtrarUsuariosAcceso = (usuarios: Usuario[]): Usuario[] => {
+  return usuarios.filter(u => 
+    u.edad >= 18 && 
+    u.activo && 
+    u.rol !== "visitante"
+  );
+};
