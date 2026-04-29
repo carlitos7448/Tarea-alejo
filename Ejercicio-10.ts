@@ -7,3 +7,15 @@ Cada método requiere distintos campos:
 "efectivo": no requiere datos adicionales
 Crea una función que reciba un pago y valide que se hayan ingresado los datos
 obligatorios dependiendo del método.*/
+
+type Pago = 
+  | { metodo: "tarjeta"; numero: string; cvv: number }
+  | { metodo: "transferencia"; banco: string; cuenta: string }
+  | { metodo: "efectivo" };
+
+const validarPago = (pago: Pago): boolean => {
+  if (pago.metodo === "tarjeta") return !!(pago.numero && pago.cvv);
+  if (pago.metodo === "transferencia") return !!(pago.banco && pago.cuenta);
+  if (pago.metodo === "efectivo") return true;
+  return false;
+};
